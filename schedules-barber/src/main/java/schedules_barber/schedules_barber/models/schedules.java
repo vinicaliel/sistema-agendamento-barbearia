@@ -5,9 +5,8 @@ import java.time.LocalDateTime;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.Id;
 import static jakarta.persistence.GenerationType.IDENTITY;
-
+import jakarta.persistence.Id;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
@@ -24,22 +23,25 @@ public class schedules {
     @GeneratedValue(strategy = IDENTITY)
     private Long id;
 
-    @Column(nullable = false)
+    @Column(nullable = true)
     private String clientName;
 
-    @Column(nullable = false)
+    @Column(nullable = true)
     private String clientEmail;
 
-    @Column(nullable = false)
+    @Column(nullable = true)
     private String clientPhone;
 
-    @Column(nullable = false)
+    @Column(nullable = true)
     private String barberName;
 
     @Column(nullable = false)
-    private LocalDateTime date;
+    private LocalDateTime date; // start time
 
-    @Column(nullable = false)
+    @Column(nullable = true)
+    private LocalDateTime endAt; // end time
+
+    @Column(nullable = true)
     private String service;
 
     

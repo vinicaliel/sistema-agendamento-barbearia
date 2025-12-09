@@ -1,0 +1,29 @@
+<section class="hero-banner">
+  <div class="hero-content">
+    <h1>Barbearia Premium</h1>
+    <p>Estilo e tradição em cada corte</p>
+    <button mat-raised-button color="accent" routerLink="/agendamento">
+      AGENDAR HORÁRIO
+    </button>
+    <button mat-stroked-button color="primary" routerLink="/listschedules" style="margin-left:12px">
+      LISTA DE AGENDAMENTOS
+    </button>
+  </div>
+</section>
+
+<section class="services-section">
+  <h2>Nossos Serviços</h2>
+  
+  <mat-grid-list cols="3" rowHeight="1:1" gutterSize="16px">
+    @for (servico of servicos; track servico.nome) {
+      <mat-grid-tile>
+        <mat-card>
+          <mat-icon>{{servico.icon}}</mat-icon>
+          <h3>{{servico.nome}}</h3>
+          <p>{{servico.descricao}}</p>
+          <span class="price">{{servico.preco | currency:'BRL'}}</span>
+        </mat-card>
+      </mat-grid-tile>
+    }
+  </mat-grid-list>
+</section>
