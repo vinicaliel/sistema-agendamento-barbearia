@@ -1,0 +1,26 @@
+@import "@angular/material/prebuilt-themes/indigo-pink.css";
+
+:root {
+  --primary-color: #1a1a2e;
+  --secondary-color: #16213e;
+  --accent-color: #fca311;
+  --light-color: #e6e6e6;
+}
+
+body {
+  margin: 0;
+  font-family: 'Roboto', sans-serif;
+  background-color: #f5f5f5;
+}
+
+.mat-primary {
+  background-color: var(--primary-color) !important;
+}
+
+.mat-accent {
+  background-color: var(--accent-color) !important;
+}
+
+.mat-warn {
+  background-color: #e63946 !important;
+}

@@ -1,0 +1,99 @@
+<mat-card class="agendamento-card">
+  <mat-card-header>
+    <mat-card-title>
+      <mat-icon>calendar_month</mat-icon> Agendar Horário
+    </mat-card-title>
+    <mat-card-subtitle>Preencha os dados para reservar seu horário</mat-card-subtitle>
+  </mat-card-header>
+  <mat-card-content>
+    <form [formGroup]="form" (ngSubmit)="agendar()">
+      <div class="form-grid">
+        <!-- Nome do Cliente -->
+        <mat-form-field appearance="outline" class="custom-form-field full-width white-background">
+          <mat-label>Nome do Cliente</mat-label>
+          <input matInput formControlName="clientName" required>
+          <mat-icon matSuffix>person</mat-icon>
+        </mat-form-field>
+
+        <!-- Email do Cliente -->
+        <mat-form-field appearance="outline" class="custom-form-field full-width white-background">
+          <mat-label>Email do Cliente</mat-label>
+          <input matInput formControlName="clientEmail" required>
+          <mat-icon matSuffix>email</mat-icon>
+        </mat-form-field>
+
+        <!-- Telefone do Cliente -->
+        <mat-form-field appearance="outline" class="custom-form-field full-width white-background ">
+          <mat-label>Telefone do Cliente</mat-label>
+          <input matInput formControlName="clientPhone">
+          <mat-icon matSuffix>phone</mat-icon>
+        </mat-form-field>
+
+        <!-- Serviço -->
+        <mat-form-field appearance="outline" class="custom-form-field white-background">
+          <mat-label>Serviço</mat-label>
+          <mat-select formControlName="servico" required>
+            <mat-option *ngFor="let servico of servicos" [value]="servico.id">
+              <div class="servico-option">
+                <mat-icon>{{servico.icon}}</mat-icon>
+                <span>{{servico.nome}} ({{servico.duracao}} min) - {{servico.preco | currency:'BRL'}}</span>
+              </div>
+            </mat-option>
+          </mat-select>
+          <mat-icon matSuffix>style</mat-icon>
+        </mat-form-field>
+
+        <!-- Barbeiro -->
+        <mat-form-field appearance="outline" class="custom-form-field white-background">
+          <mat-label>Barbeiro</mat-label>
+          <mat-select formControlName="barbeiro" required>
+            <mat-option *ngFor="let barbeiro of barbeiros" [value]="barbeiro.id">
+              <div class="barbeiro-option">    
+                {{barbeiro.nome}}
+              </div>
+              
+            </mat-option>
+
+          </mat-select>
+          <mat-icon matSuffix>person</mat-icon>
+        </mat-form-field>
+
+        <!-- Data -->
+        <mat-form-field appearance="outline" class="custom-form-field white-background">
+        <mat-label>Data</mat-label>
+            
+        <input matInput [matDatepicker]="picker" formControlName="data" required>
+        <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle >
+        <mat-datepicker #picker></mat-datepicker>
+
+        </mat-form-field>
+
+        <!-- Horário -->
+        <mat-form-field appearance="outline" class="custom-form-field white-background">
+          <mat-label>Horário</mat-label>
+          <mat-select formControlName="horario" required>
+            <mat-option *ngFor="let horario of horariosDisponiveis" [value]="horario">
+              <div class="horario-option">
+                {{horario}}
+              </div>
+              
+            </mat-option>
+          </mat-select>
+          <mat-icon matSuffix>schedule</mat-icon>
+        </mat-form-field>
+
+        <!-- Observações -->
+        <mat-form-field appearance="outline" class="custom-form-field full-width white-background">
+          <mat-label>Observações</mat-label>
+          <textarea matInput formControlName="observacoes" rows="3"></textarea>
+          <mat-icon matSuffix>notes</mat-icon>
+        </mat-form-field>
+      </div>
+      <div class="actions">
+        <button mat-raised-button class="custom-button" type="submit" [disabled]="!form.valid">
+          <mat-icon>check_circle</mat-icon> CONFIRMAR AGENDAMENTO
+        </button>
+      </div>
+    </form>
+  </mat-card-content>
+</mat-card>

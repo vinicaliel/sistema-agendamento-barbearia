@@ -1,0 +1,13 @@
+h1 {
+    color: #1a1a2e;
+    margin-bottom: 16px;
+  }
+  
+  p {
+    color: #666;
+    margin-bottom: 24px;
+  }
+  
+  button[mat-raised-button] {
+    margin-left: 8px;
+  }
