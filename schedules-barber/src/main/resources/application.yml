@@ -1,0 +1,21 @@
+spring:
+  application:
+    name: schedules-barber
+  datasource:
+    url: jdbc:postgresql://localhost:5432/schedulesbarber
+    username: postgres
+    password: 123a123a
+    driver-class-name: org.postgresql.Driver
+  jpa:
+    hibernate:
+      ddl-auto: create
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.PostgreSQLDialect
+        format_sql: true
+    show-sql: false
+
+server:
+  servlet:
+    context-path: /api
+  port: 8080
